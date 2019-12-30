@@ -26,6 +26,11 @@ for Desktop
 wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_kinetic.sh && chmod 755 ./install_ros_kinetic.sh && bash ./install_ros_kinetic.sh
 ```
 
+Additionally, LMS1xx for ROS depends on following software([LMS1xx ROS wiki](http://wiki.ros.org/LMS1xx))
+```
+sudo apt-get install ros-kinetic-lms1xx
+```
+
 ## How to start?
 
 ```
