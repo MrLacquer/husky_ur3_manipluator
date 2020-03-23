@@ -25,11 +25,12 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 -->
 <robot name="husky" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:arg name="laser_enabled" default="false" />
-  <xacro:arg name="laser_xyz" default="$(optenv HUSKY_LMS1XX_XYZ 0.2206 0.0 0.00635)" />
-  <xacro:arg name="laser_rpy" default="$(optenv HUSKY_LMS1XX_RPY 0.0 0.0 0.0)" />
+ 
+  <xacro:arg name="laser_xyz" default="$(optenv HUSKY_LMS1XX_XYZ 0.3206 0.0 -0.000635)" />
+  <xacro:arg name="laser_rpy" default="$(optenv HUSKY_LMS1XX_RPY 0.0 0 0)" />
+
   
-  <xacro:arg name="ur3_enabled" default="true" />
+ 
 
   <xacro:arg name="kinect_enabled" default="false" />
   <xacro:arg name="kinect_xyz" default="$(optenv HUSKY_KINECT_XYZ 0 0 0)" />
@@ -47,6 +48,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 
   <xacro:include filename="$(find husky_ur3_gazebo)/urdf/accessories/kinect_camera.urdf.xacro"/>
   <xacro:include filename="$(find husky_ur3_gazebo)/urdf/accessories/sick_lms1xx_mount.urdf.xacro"/>
+   <xacro:include filename="$(find husky_ur3_gazebo)/urdf/accessories/sick_tim571.urdf.xacro"/>
   <xacro:include filename="$(find husky_ur3_gazebo)/urdf/accessories/sensor_arch.urdf.xacro"/>
   <xacro:include filename="$(find husky_ur3_gazebo)/urdf/ur3_robot.urdf.xacro"/>
 
@@ -139,23 +141,10 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 
   <xacro:husky_decorate />
 
-  
 
-
-
-  <xacro:if value="$(arg laser_enabled)">
-
-    <sick_lms1xx_mount prefix="base"/>
-
-    <sick_lms1xx frame="base_laser" topic="scan" robot_namespace="$(arg robot_namespace)"/>
-
-    <joint name="laser_mount_joint" type="fixed">
-      <origin xyz="$(arg laser_xyz)" rpy="$(arg laser_rpy)" />
-      <parent link="top_plate_link" />
-      <child link="base_laser_mount" />
-    </joint>
-
-  </xacro:if>
+  <xacro:sensor_sick_tim571 prefix="front_laser" parent="top_plate_link" prefix_topic="front_laser">
+   	<origin xyz="$(arg laser_xyz)" rpy="$(arg laser_rpy)"/>
+  </xacro:sensor_sick_tim571>
 
   <xacro:if value="$(arg kinect_enabled)">
 
@@ -170,6 +159,57 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 
     <xacro:kinect_camera prefix="camera" robot_namespace="$(arg robot_namespace)"/>
   </xacro:if>
+
+
+
+
+ <joint name="control_box_ur3_joint" type="fixed">
+      <origin xyz="-0.2 0 0.005" rpy="0 0 0" />
+      <parent link="top_plate_link"/>
+      <child link="control_box_ur3_link" />
+    </joint>   
+  
+  <link name="control_box_ur3_link">
+    <inertial>
+      <mass value="5.0" />
+      <origin xyz="0 0 0" />
+      <inertia  ixx="0.0" ixy="0.0"  ixz="0.0"  iyy="0.0"  iyz="0.0"  izz="0.0" />
+    </inertial>
+    <visual>
+       <origin xyz="0 0 0" rpy="0 0 0" />
+       <geometry>
+          <!--box size="0.3 0.3 0.3"/-->
+	       <mesh filename="package://husky_ur3_gazebo/meshes/ur3_box.stl"/>
+       </geometry>
+       <material name="darkgrey">
+         <color rgba="0.1 0.1 0.1 1"/>
+       </material>
+    </visual>  
+    <collision>
+       <origin xyz="0 0 0" rpy="0 0 0 " />
+       <geometry>
+         <mesh filename="package://husky_ur3_gazebo/meshes/ur3_box.stl"/>
+       </geometry>
+    </collision>     
+  </link>
+  <gazebo reference="control_box_ur3_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">

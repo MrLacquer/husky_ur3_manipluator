@@ -1,5 +1,5 @@
 # Husky - UR3 manipulator
-
+ 
 ## Overview
 The Husky UR3 mobile manipulation tutorial will show you how to operate a mobile manipulation robot using Gazebo, RViz, MoveIt, and the UR3 arm. 
 
@@ -10,7 +10,7 @@ There will be full control and actuation of the robot, and the software written 
 
 **Affiliation: [Human-Robot Interaction LAB](https://khu-hri.weebly.com), Kyung Hee Unviersity, South Korea**
 
-
+## ROS Kinetic version
 
 ## Installation
 - Before do this, please backup important files.
@@ -30,6 +30,11 @@ Additionally, LMS1xx for ROS depends on following software([LMS1xx ROS wiki](htt
 ```
 sudo apt-get install ros-kinetic-lms1xx
 ```
+- For contorling unversal robot with Moveit! python interface.
+[ur3-moveit-test](https://github.com/MrLacquer/ur3-moveit-test.git)
+$ cd ~/catkin_ws/src && git clone https://github.com/MrLacquer/ur3-moveit-test.git
+$ cd ~/catkin_ws && catkin_make
+$ rospack profile && rosstack profile
 
 ## How to start?
 
@@ -43,10 +48,17 @@ $ roslaunch husky_ur3_gazebo husky_ur3.launch
 $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
 - Bring Up MoveIt & RViz
-$ roslaunch husky_ur3_moveit_config demo.launch   
+$ roslaunch husky_ur3_moveit_config husky_ur3_hj_moveit_planning_excution.launch sim:=true
+$ roslaunch husky_ur3_moveit_config moveit_rviz.launch
+
+- Contorlling the UR3 manipulator (more detail [ur3-moveit-test](https://github.com/MrLacquer/ur3-moveit-test.git))
+$ rosrun ur3_moveit ur3_move.py 
+or
+$ rosrun ur3_moveit ur3_demo.py 
 ```
 
 ## Description
+<img width="1000" src="https://user-images.githubusercontent.com/4105524/77276506-3848a780-6cfe-11ea-9672-eda8e562189b.png"  alt="Screenshot" title="Screenshot">
 
 
 ## Demo
