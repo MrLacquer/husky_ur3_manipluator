@@ -6,6 +6,7 @@ The Husky UR3 mobile manipulation tutorial will show you how to operate a mobile
 There will be full control and actuation of the robot, and the software written for this robot can be translated into real world actions with the real Husky UR3 robot.
 
 
+
 **Author: [Hyeonjun Park](https://www.linkedin.com/in/hyeonjun-park-41bb59125), koreaphj91@gmail.com**
 
 **Affiliation: [Human-Robot Interaction LAB](https://khu-hri.weebly.com), Kyung Hee Unviersity, South Korea**
@@ -30,11 +31,32 @@ Additionally, LMS1xx for ROS depends on following software([LMS1xx ROS wiki](htt
 ```
 sudo apt-get install ros-kinetic-lms1xx
 ```
-- For contorling unversal robot with Moveit! python interface.
-[ur3-moveit-test](https://github.com/MrLacquer/ur3-moveit-test.git)
+- For contorling unversal robot with Moveit! python interface.  
+[ur3-moveit-test](https://github.com/MrLacquer/ur3-moveit-test.git)  
+```
 $ cd ~/catkin_ws/src && git clone https://github.com/MrLacquer/ur3-moveit-test.git
 $ cd ~/catkin_ws && catkin_make
 $ rospack profile && rosstack profile
+```
+
+- For hector slam  
+[hector-slam](http://wiki.ros.org/hector_slam)  
+```
+$ cd ~/catkin_ws/src && git clone https://github.com/tu-darmstadt-ros-pkg/hector_slam.git
+*if you're Kinetic version,*
+$ cd ~/catkin_ws/src/hector_slam
+$ git checkout catkin
+$ cd ~/catkin_ws && catkin_make
+$ rospack profile && rosstack profile
+```
+
+- For husky mobile robot control  
+[four-wheel-steer-teleop](https://github.com/gkouros/four-wheel-steer-teleop.git)  
+```
+$ cd ~/catkin_ws/src && git clone https://github.com/gkouros/four-wheel-steer-teleop.git
+$ cd ~/catkin_ws && catkin_make
+$ rospack profile && rosstack profile
+```
 
 ## How to start?
 
@@ -48,7 +70,7 @@ $ roslaunch husky_ur3_gazebo husky_ur3.launch
 $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
 - Bring Up MoveIt & RViz
-$ roslaunch husky_ur3_moveit_config husky_ur3_hj_moveit_planning_excution.launch sim:=true
+$ roslaunch husky_ur3_moveit_config husky_ur3_hj_moveit_planning_excution.launch
 $ roslaunch husky_ur3_moveit_config moveit_rviz.launch
 
 - Contorlling the UR3 manipulator (more detail [ur3-moveit-test](https://github.com/MrLacquer/ur3-moveit-test.git))
@@ -57,11 +79,43 @@ or
 $ rosrun ur3_moveit ur3_demo.py 
 ```
 
+- Husky UR3 manipulator with hector slam
+```
+$ roslaunch husky_ur3_gazebo husky_ur3.launch
+*(Optional)* $ roslaunch husky_ur3_moveit_config husky_ur3_hj_moveit_planning_excution.launch
+$ roslaunch husky_ur3_moveit_config moveit_rviz.launch
+$ roslaunch husky_ur3_navigation husky_ur3_mapping.launch  
+$ rosrun four_wheel_steer_teleop four_wheel_steer_teleop.py 
+
+
+To save the generated map, you can run the map_saver utility:
+$ rosrun map_server map_saver -f <filename>
+```
+
+- Husky UR3 manipulator naviagation 
+```
+$ roslaunch husky_ur3_gazebo husky_ur3.launch
+*(Optional)* $ roslaunch husky_ur3_moveit_config husky_ur3_hj_moveit_planning_excution.launch
+$ roslaunch husky_ur3_moveit_config moveit_rviz.launch
+$ roslaunch husky_ur3_navigation husky_ur3_amcl.launch
+```
+
+## Note
+- 'param' folder is for Turtlebot3's AMCL.
+```
+amcl_test_code.launch
+move_base_test_code.launch
+```
+
+
+
 ## Description
-<img width="1000" src="https://user-images.githubusercontent.com/4105524/77276506-3848a780-6cfe-11ea-9672-eda8e562189b.png"  alt="Screenshot" title="Screenshot">
 
 
 ## Demo
+### Launch the Gazebo and Moveit!
+<img width="1000" src="https://user-images.githubusercontent.com/4105524/77276506-3848a780-6cfe-11ea-9672-eda8e562189b.png"  alt="Screenshot" title="Screenshot">
 
-
+### Launch the Gazebo and Navigation 
+<img width="1000" src="https://user-images.githubusercontent.com/4105524/77393465-6a323a80-6de0-11ea-9a34-82e4ebc3fe79.png"  alt="Screenshot" title="Screenshot">
 

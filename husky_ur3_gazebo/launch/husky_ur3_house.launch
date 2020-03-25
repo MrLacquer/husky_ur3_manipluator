@@ -5,7 +5,7 @@
   <arg name="laser_enabled" default="true"/>
   <arg name="kinect_enabled" default="true"/>
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find husky_ur3_gazebo)/worlds/gaitech.world"/>
+    <arg name="world_name" value="$(find turtlebot3_gazebo)/worlds/turtlebot3_house.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
@@ -17,8 +17,8 @@
   <include file="$(find husky_ur3_gazebo)/launch/spawn_husky.launch">
     <arg name="laser_enabled" value="$(arg laser_enabled)"/>
     <arg name="kinect_enabled" value="$(arg kinect_enabled)"/>
-    <arg name="x" default="0.0"/>
-    <arg name="y" default="0.0"/>
+    <arg name="x" default="-3.0"/>
+    <arg name="y" default="0.5"/>
     <arg name="z" default="0.0"/>
   </include>
 
