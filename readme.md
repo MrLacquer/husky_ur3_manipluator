@@ -101,6 +101,8 @@ $ roslaunch husky_ur3_navigation husky_ur3_amcl.launch
 ```
 
 ## Note
+- 2020.03.25: husky robot's IMU data is missing. We're trying to fixing this problems.
+
 - 'param' folder is for Turtlebot3's AMCL.
 ```
 amcl_test_code.launch
