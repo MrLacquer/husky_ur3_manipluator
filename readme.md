@@ -103,7 +103,7 @@ $ roslaunch husky_ur3_navigation husky_ur3_amcl.launch
 ```
 
 ## Note
-- ~~2020.03.25: husky robot's IMU data is missing. We're trying to fixing this problems.~~
+- ~~2020.03.25: husky robot's IMU data is missing. We're trying to fixing this problems.~~  
    -> It has been fixed. The problem is '[control.yaml](https://github.com/MrLacquer/husky_ur3_manipluator/blob/master/husky_ur3_gazebo/config/control.yaml)' file.  
       Thank you! [Sang-heum Lee](https://github.com/Shumine)
 
