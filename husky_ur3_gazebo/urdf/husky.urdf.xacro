@@ -27,7 +27,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 
  
   <xacro:arg name="laser_xyz" default="$(optenv HUSKY_LMS1XX_XYZ 0.3206 0.0 -0.000635)" />
-  <xacro:arg name="laser_rpy" default="$(optenv HUSKY_LMS1XX_RPY 0.0 0 0)" />
+  <xacro:arg name="laser_rpy" default="$(optenv HUSKY_LMS1XX_RPY 0.0 0.0 0.0)" />
 
   
  
@@ -145,6 +145,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <xacro:sensor_sick_tim571 prefix="front_laser" parent="top_plate_link" prefix_topic="front_laser">
    	<origin xyz="$(arg laser_xyz)" rpy="$(arg laser_rpy)"/>
   </xacro:sensor_sick_tim571>
+  
 
   <xacro:if value="$(arg kinect_enabled)">
 
@@ -156,6 +157,8 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
       <parent link="sensor_arch_mount_link"/>
       <child link="camera_link"/>
     </joint>
+
+    
 
     <xacro:kinect_camera prefix="camera" robot_namespace="$(arg robot_namespace)"/>
   </xacro:if>
@@ -195,6 +198,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <gazebo reference="control_box_ur3_link">
     <material>Gazebo/DarkGrey</material>
   </gazebo>
+
 
 
 
