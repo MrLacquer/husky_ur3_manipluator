@@ -41,6 +41,14 @@ $ cd ~/catkin_ws && catkin_make
 $ rospack profile && rosstack profile
 ```
 
+- For hector_gazebo plugnins.  
+[hector_gazebo](https://github.com/tu-darmstadt-ros-pkg/hector_gazebo)  
+```
+$ cd ~/catkin_ws/src && git clone https://github.com/tu-darmstadt-ros-pkg/hector_gazebo.git
+$ cd ~/catkin_ws && catkin_make
+$ rospack profile && rosstack profile
+```
+
 - For hector slam  
 [hector-slam](http://wiki.ros.org/hector_slam)  
 ```
