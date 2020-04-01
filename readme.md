@@ -13,7 +13,7 @@ There will be full control and actuation of the robot, and the software written 
 
 **Affiliation: [Human-Robot Interaction LAB](https://khu-hri.weebly.com), Kyung Hee Unviersity, South Korea**
 
-## This pakage for ROS Kinetic version
+## This pakage for ROS Melodic version
 
 ## Installation
 - Before do this, please backup important files.
@@ -72,7 +72,7 @@ $ roslaunch husky_ur3_gazebo husky_ur3.launch
 $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
 - Bring Up MoveIt & RViz
-$ roslaunch husky_ur3_moveit_config husky_ur3_hj_moveit_planning_excution.launch
+$ roslaunch husky_ur3_test_moveit_config husky_ur3_planning_excution.launch
 $ roslaunch husky_ur3_moveit_config moveit_rviz.launch
 
 - Contorlling the UR3 manipulator (more detail [ur3-moveit-test](https://github.com/MrLacquer/ur3-moveit-test.git))
@@ -84,7 +84,7 @@ $ rosrun ur3_moveit ur3_demo.py
 - Husky UR3 manipulator with hector slam
 ```
 $ roslaunch husky_ur3_gazebo husky_ur3.launch
-*(Optional)* $ roslaunch husky_ur3_moveit_config husky_ur3_hj_moveit_planning_excution.launch
+*(Optional)* $ roslaunch husky_ur3_test_moveit_config husky_ur3_planning_excution.launch
 $ roslaunch husky_ur3_moveit_config moveit_rviz.launch
 $ roslaunch husky_ur3_navigation husky_ur3_mapping.launch  
 $ rosrun four_wheel_steer_teleop four_wheel_steer_teleop.py 
@@ -97,7 +97,7 @@ $ rosrun map_server map_saver -f <filename>
 - Husky UR3 manipulator naviagation 
 ```
 $ roslaunch husky_ur3_gazebo husky_ur3.launch
-*(Optional)* $ roslaunch husky_ur3_moveit_config husky_ur3_hj_moveit_planning_excution.launch
+*(Optional)* $ roslaunch husky_ur3_test_moveit_config husky_ur3_planning_excution.launch
 $ roslaunch husky_ur3_moveit_config moveit_rviz.launch
 $ roslaunch husky_ur3_navigation husky_ur3_amcl.launch
 ```
