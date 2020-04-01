@@ -1,0 +1,14 @@
+material GaitechLogoKorea/logokorea
+{
+     technique
+     {
+         pass
+         {
+
+             texture_unit
+             {
+                 texture gaitech_korea_logo.jpg
+             }
+         }
+     }
+}

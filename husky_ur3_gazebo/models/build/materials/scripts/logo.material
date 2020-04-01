@@ -1,0 +1,14 @@
+material GaitechLogo/logo
+{
+     technique
+     {
+         pass
+         {
+
+             texture_unit
+             {
+                 texture gaitechlogo.png
+             }
+         }
+     }
+}

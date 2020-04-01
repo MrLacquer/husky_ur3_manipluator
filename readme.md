@@ -7,11 +7,13 @@ There will be full control and actuation of the robot, and the software written 
 
 
 
-**Author: [Hyeonjun Park](https://www.linkedin.com/in/hyeonjun-park-41bb59125), koreaphj91@gmail.com**
+**Author:**   
+- **Kinetic version - [Hyeonjun Park](https://www.linkedin.com/in/hyeonjun-park-41bb59125), koreaphj91@gmail.com**  
+- **Melodic version - [Sang-heum Lee](https://github.com/Shumine), heumine@khu.ac.kr**
 
 **Affiliation: [Human-Robot Interaction LAB](https://khu-hri.weebly.com), Kyung Hee Unviersity, South Korea**
 
-## ROS Kinetic version
+## This pakage for ROS Kinetic version
 
 ## Installation
 - Before do this, please backup important files.
@@ -101,9 +103,11 @@ $ roslaunch husky_ur3_navigation husky_ur3_amcl.launch
 ```
 
 ## Note
-- 2020.03.25: husky robot's IMU data is missing. We're trying to fixing this problems.
+- ~~2020.03.25: husky robot's IMU data is missing. We're trying to fixing this problems.~~
+   -> It has been fixed. The problem is '[control.yaml](https://github.com/MrLacquer/husky_ur3_manipluator/blob/master/husky_ur3_gazebo/config/control.yaml)' file.  
+      Thank you! [Sang-heum Lee](https://github.com/Shumine)
 
-- 'param' folder is for Turtlebot3's AMCL.
+- 'param' folder is for Turtlebot3's AMCL. Not used.
 ```
 amcl_test_code.launch
 move_base_test_code.launch
