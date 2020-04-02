@@ -22,16 +22,11 @@ There will be full control and actuation of the robot, and the software written 
 
 This software is built on the Robotic Operating System ([ROS](http://wiki.ros.org/ROS/Installation)).
 
-One line install: https://cafe.naver.com/openrt/14575 
-```
-for Desktop
-
-wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_kinetic.sh && chmod 755 ./install_ros_kinetic.sh && bash ./install_ros_kinetic.sh
-```
+[Installation guide for ROS melodic version](http://wiki.ros.org/melodic/Installation/Ubuntu)
 
 Additionally, LMS1xx for ROS depends on following software([LMS1xx ROS wiki](http://wiki.ros.org/LMS1xx))
 ```
-sudo apt-get install ros-kinetic-lms1xx
+sudo apt-get install ros-melodic-lms1xx
 ```
 - For contorling unversal robot with Moveit! python interface.  
 [ur3-moveit-test](https://github.com/MrLacquer/ur3-moveit-test.git)  
@@ -41,11 +36,18 @@ $ cd ~/catkin_ws && catkin_make
 $ rospack profile && rosstack profile
 ```
 
+- For hector_gazebo plugnins.  
+[hector_gazebo](https://github.com/tu-darmstadt-ros-pkg/hector_gazebo)  
+```
+$ cd ~/catkin_ws/src && git clone https://github.com/tu-darmstadt-ros-pkg/hector_gazebo.git
+$ cd ~/catkin_ws && catkin_make
+$ rospack profile && rosstack profile
+```
+
 - For hector slam  
 [hector-slam](http://wiki.ros.org/hector_slam)  
 ```
 $ cd ~/catkin_ws/src && git clone https://github.com/tu-darmstadt-ros-pkg/hector_slam.git
-*if you're Kinetic version,*
 $ cd ~/catkin_ws/src/hector_slam
 $ git checkout catkin
 $ cd ~/catkin_ws && catkin_make
