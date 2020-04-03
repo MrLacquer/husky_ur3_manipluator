@@ -92,8 +92,8 @@ $ rosrun ur3_moveit ur3_demo.py
 - Husky UR3 manipulator with hector slam
 ```
 $ roslaunch husky_ur3_gazebo husky_ur3.launch
-*(Optional)* $ roslaunch husky_ur3_moveit_config husky_ur3_hj_moveit_planning_excution.launch
-$ roslaunch husky_ur3_moveit_config moveit_rviz.launch
+*(Optional)* $ roslaunch husky_ur3_hj_moveit_config husky_ur3_hj_moveit_planning_excution.launch
+$ roslaunch husky_ur3_hj_moveit_config moveit_rviz.launch
 $ roslaunch husky_ur3_navigation husky_ur3_mapping.launch  
 $ rosrun four_wheel_steer_teleop four_wheel_steer_teleop.py 
 
@@ -105,8 +105,8 @@ $ rosrun map_server map_saver -f <filename>
 - Husky UR3 manipulator naviagation 
 ```
 $ roslaunch husky_ur3_gazebo husky_ur3.launch
-*(Optional)* $ roslaunch husky_ur3_moveit_config husky_ur3_hj_moveit_planning_excution.launch
-$ roslaunch husky_ur3_moveit_config moveit_rviz.launch
+*(Optional)* $ roslaunch husky_ur3_hj_moveit_config husky_ur3_hj_moveit_planning_excution.launch
+$ roslaunch husky_ur3_moveit_hj_config moveit_rviz.launch
 $ roslaunch husky_ur3_navigation husky_ur3_amcl.launch
 ```
 
@@ -128,8 +128,8 @@ move_base_test_code.launch
 
 ## Demo
 ### Launch the Gazebo and Moveit!
-<img width="1000" src="https://user-images.githubusercontent.com/4105524/77276506-3848a780-6cfe-11ea-9672-eda8e562189b.png"  alt="Screenshot" title="Screenshot">
+[[SLAM Video Link]<img width="1000" src="https://user-images.githubusercontent.com/4105524/77276506-3848a780-6cfe-11ea-9672-eda8e562189b.png"  alt="Screenshot" title="Screenshot">](https://youtu.be/vyqf5hU3364)
 
 ### Launch the Gazebo and Navigation 
-<img width="1000" src="https://user-images.githubusercontent.com/4105524/77393465-6a323a80-6de0-11ea-9a34-82e4ebc3fe79.png"  alt="Screenshot" title="Screenshot">
+[[Navigation Video Link]<img width="1000" src="https://user-images.githubusercontent.com/4105524/77393465-6a323a80-6de0-11ea-9a34-82e4ebc3fe79.png"  alt="Screenshot" title="Screenshot">](https://youtu.be/Fb6eYntubrA)
 
