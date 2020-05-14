@@ -1,16 +1,20 @@
 <launch>
-
+  <arg name="rviz"            default="true"/>
   <arg name="debug" default="false" />
   <arg unless="$(arg debug)" name="launch_prefix" value="" />
   <arg     if="$(arg debug)" name="launch_prefix" value="gdb --ex run --args" />
 
+  <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz" args="-d $(find husky_ur3_test_moveit_config)/launch/moveit_amcl.rviz" >
+    <rosparam command="load" file="$(find husky_ur3_test_moveit_config)/config/kinematics.yaml"/>
+  </node>
+<!--
   <arg name="rviz_config" default="" />
   <arg     if="$(eval rviz_config=='')" name="command_args" value="" />
   <arg unless="$(eval rviz_config=='')" name="command_args" value="-d $(arg rviz_config)" />
 
-  <node name="$(anon rviz)" launch-prefix="$(arg launch_prefix)" pkg="rviz" type="rviz" respawn="false"
-	args="$(arg command_args)" output="screen">
-    <rosparam command="load" file="$(find husky_ur3_test_moveit_config)/config/kinematics.yaml"/>
+  <node name="$(anon rviz)" launch-prefix="$(arg launch_prefix)" pkg="rviz" type="rviz" respawn="false"	 output="screen">
+    
   </node>
+-->
 
 </launch>
