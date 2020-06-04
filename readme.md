@@ -9,7 +9,7 @@ There will be full control and actuation of the robot, and the software written 
 
 **Author:**   
 - **Kinetic version - [Hyeonjun Park](https://www.linkedin.com/in/hyeonjun-park-41bb59125), koreaphj91@gmail.com**  
-- **Melodic version - [Sang-heum Lee](https://github.com/Shumine), heumine@khu.ac.kr**
+- **Melodic version - [Sang-heum Lee](https://github.com/Shumine), humine@khu.ac.kr**
 
 **Affiliation: [Human-Robot Interaction LAB](https://khu-hri.weebly.com), Kyung Hee Unviersity, South Korea**
 
@@ -82,8 +82,10 @@ $ roslaunch husky_ur3_gazebo husky_ur3.launch
 $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
 - Bring Up MoveIt & RViz
-$ roslaunch husky_ur3_test_moveit_config husky_ur3_planning_excution.launch
-$ roslaunch husky_ur3_moveit_config moveit_rviz.launch
+~~$ roslaunch husky_ur3_test_moveit_config husky_ur3_planning_excution.launch~~
+~~$ roslaunch husky_ur3_moveit_config moveit_rviz.launch~~
+->With new version of moveit_config file, you only have to launch demo file. (2020.06.05)
+$ roslaunch husky_ur3_sim_moveit_config demo.launch
 
 - Contorlling the UR3 manipulator (more detail [ur3-moveit-test](https://github.com/MrLacquer/ur3-moveit-test.git))
 $ rosrun ur3_moveit ur3_move.py 
@@ -99,6 +101,10 @@ $ roslaunch husky_ur3_moveit_config moveit_rviz.launch
 $ roslaunch husky_ur3_navigation husky_ur3_mapping.launch  
 $ rosrun four_wheel_steer_teleop four_wheel_steer_teleop.py 
 
+- Husky UR3 manipulator with gmapping(2020.06.05 added)
+$ roslaunch husky_ur3_gazebo husky_ur3.launch
+$ roslaunch husky_ur3_navigation gmapping.demo.launch 
+$ roslaunch husky_ur3_navigation mapping_rviz.launch
 
 To save the generated map, you can run the map_saver utility:
 $ rosrun map_server map_saver -f <filename>
@@ -109,13 +115,16 @@ $ rosrun map_server map_saver -f <filename>
 $ roslaunch husky_ur3_gazebo husky_ur3.launch
 *(Optional)* $ roslaunch husky_ur3_test_moveit_config husky_ur3_planning_excution.launch
 $ roslaunch husky_ur3_moveit_config moveit_rviz.launch
-$ roslaunch husky_ur3_navigation husky_ur3_amcl.launch
+$ roslaunch husky_ur3_navigation amcl_demo.launch
+$ roslaunch husky_ur3_navigation rviz_nav.launch
 ```
 
 ## Note
 - ~~2020.03.25: husky robot's IMU data is missing. We're trying to fixing this problems.~~  
    -> It has been fixed. The problem is '[control.yaml](https://github.com/MrLacquer/husky_ur3_manipluator/blob/master/husky_ur3_gazebo/config/control.yaml)' file.  
       Thank you! [Sang-heum Lee](https://github.com/Shumine)
+- [Gaitech-robotics](https://github.com/gaitech-robotics) supported us to update this package.
+
 
 - 'param' folder is for Turtlebot3's AMCL. Not used.
 ```

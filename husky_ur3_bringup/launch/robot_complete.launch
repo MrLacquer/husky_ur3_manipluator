@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+   <!--Robot description -->
+   <include file="$(find husky_ur3_description)/launch/description.launch"/>
+   
+   <!-- Differential controller parameters and basic localization with Joystick teleop control -->
+   <include file="$(find husky_ur3_bringup)/launch/husky_base.launch" />
+
+   <!-- UR3 robot -->
+   <include file="$(find husky_ur3_bringup)/launch/ur3.launch" />
+    
+    <!--Sick tim laser sensor-->
+    <include file="$(find husky_ur3_bringup)/launch/sick_tim.launch"/>
+
+</launch>

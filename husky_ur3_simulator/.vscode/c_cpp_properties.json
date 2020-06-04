@@ -1,0 +1,38 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/opt/ros/melodic/include/**",
+                "/home/chekakta/gaitech_ws/devel/include/**",
+                "/home/chekakta/gaitech_ws/src/ros_astra_camera/include/**",
+                "/home/chekakta/gaitech_ws/src/costmap_prohibition_layer/include/**",
+                "/home/chekakta/gaitech_ws/src/RIA-E100/e100_description/include/**",
+                "/opt/ros/melodic/share/fetch_gazebo/include/**",
+                "/home/chekakta/gaitech_ws/src/husky/husky_base/include/**",
+                "/home/chekakta/gaitech_ws/src/iris_lama/include/**",
+                "/home/chekakta/gaitech_ws/src/iris_lama_ros/include/**",
+                "/home/chekakta/gaitech_ws/src/jackal_robot/jackal_base/include/**",
+                "/home/chekakta/gaitech_ws/src/openslam_gmapping/include/**",
+                "/home/chekakta/gaitech_ws/src/ria_driver/include/**",
+                "/home/chekakta/gaitech_ws/src/ria_safety/ria_safety_controller/include/**",
+                "/home/chekakta/gaitech_ws/src/roboteq_control/include/**",
+                "/home/chekakta/gaitech_ws/src/roboteq/roboteq_driver/include/**",
+                "/home/chekakta/gaitech_ws/src/slam_toolbox/include/**",
+                "/home/chekakta/gaitech_ws/src/audio_common/sound_play/include/**",
+                "/home/chekakta/gaitech_ws/src/um7/include/**",
+                "/home/chekakta/gaitech_ws/src/universal_robot/ur_kinematics/include/**",
+                "/usr/include/**"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/clang-6.0",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

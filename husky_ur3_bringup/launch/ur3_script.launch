@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+   <!-- UR3 robot -->
+   <node name="launching_ur3" type="launching_ur3.py" pkg="husky_ur3_bringup"/>
+    
+</launch>
