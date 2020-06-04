@@ -82,16 +82,15 @@ $ roslaunch husky_ur3_gazebo husky_ur3.launch
 $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
 - Bring Up MoveIt & RViz
-~~$ roslaunch husky_ur3_test_moveit_config husky_ur3_planning_excution.launch~~
-~~$ roslaunch husky_ur3_moveit_config moveit_rviz.launch~~
-->With new version of moveit_config file, you only have to launch demo file. (2020.06.05)
+-> With new version of moveit_config file, you only have to launch demo file. (2020.06.05)
 $ roslaunch husky_ur3_sim_moveit_config demo.launch
 
-- Contorlling the UR3 manipulator (more detail [ur3-moveit-test](https://github.com/MrLacquer/ur3-moveit-test.git))
+- Contorlling the UR3 manipulator 
 $ rosrun ur3_moveit ur3_move.py 
 or
 $ rosrun ur3_moveit ur3_demo.py 
 ```
+(more detail [ur3-moveit-test](https://github.com/MrLacquer/ur3-moveit-test.git))
 
 - Husky UR3 manipulator with hector slam
 ```
@@ -124,14 +123,6 @@ $ roslaunch husky_ur3_navigation rviz_nav.launch
    -> It has been fixed. The problem is '[control.yaml](https://github.com/MrLacquer/husky_ur3_manipluator/blob/master/husky_ur3_gazebo/config/control.yaml)' file.  
       Thank you! [Sang-heum Lee](https://github.com/Shumine)
 - [Gaitech-robotics](https://github.com/gaitech-robotics) supported us to update this package.
-
-
-- 'param' folder is for Turtlebot3's AMCL. Not used.
-```
-amcl_test_code.launch
-move_base_test_code.launch
-```
-
 
 
 ## Description
