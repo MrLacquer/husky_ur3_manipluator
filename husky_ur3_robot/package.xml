@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>husky_ur3_robot</name>
+  <version>0.1.0</version>
+  <description>Contains the robot bringup, descrption and navigation packages</description>
+  <maintainer email="zakaria.chekakta@gaitech.co.kr">Zakaria Chekakta</maintainer>
+  <license>TODO</license>
+
+  <author email="support@gaitech.co.kr">Gaitech Korea</author> 
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>

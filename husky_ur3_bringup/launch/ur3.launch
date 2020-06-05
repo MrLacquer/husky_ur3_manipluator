@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+
+
+  <arg name="robot_ip" default="192.168.100.101" doc="IP address by which the robot can be reached."/>
+  <arg name="kinematics_config" default="$(find husky_ur3_bringup)/config/ur3_calibration.yaml"/>
+  <arg name="ros_control_urp" default="/program/ros_control_enable.urp"/>
+  <arg name="controller_config_file" default="$(find husky_ur3_bringup)/config/ros_controllers.yaml"/>
+  <arg name="controllers" default=" joint_state_controller scaled_pos_traj_controller speed_scaling_state_controller force_torque_sensor_controller" />
+  <arg name="stopped_controllers" default=" pos_traj_controller joint_group_vel_controller" doc="Controllers that are initally loaded, but not started."/>
+
+  <include file="$(find ur_robot_driver)/launch/ur3_bringup.launch">
+    <arg name="robot_ip" value="$(arg robot_ip)"/>
+    <arg name="kinematics_config" value="$(arg kinematics_config)"/>
+    <arg name="controller_config_file" value="$(arg controller_config_file)"/>
+    <arg name="controllers" value="$(arg controllers)"/>
+    <arg name="stopped_controllers" value="$(arg stopped_controllers)"/>
+  </include>
+
+  <node name="enabling_ros_control" type="ros_control_enable_urp.py" pkg="husky_ur3_bringup">
+     <param name="ros_control_enable_urp" value="$(arg ros_control_urp)"/>
+  </node>
+</launch>
