@@ -113,7 +113,7 @@ $ rosrun map_server map_saver -f <filename>
 ```
 $ roslaunch husky_ur3_gazebo husky_ur3.launch
 *(Optional)* $ roslaunch husky_ur3_test_moveit_config husky_ur3_planning_excution.launch
-$ roslaunch husky_ur3_moveit_config moveit_rviz.launch
+$ roslaunch husky_ur3_test_moveit_config moveit_rviz.launch
 $ roslaunch husky_ur3_navigation amcl_demo.launch
 $ roslaunch husky_ur3_navigation rviz_nav.launch
 ```
